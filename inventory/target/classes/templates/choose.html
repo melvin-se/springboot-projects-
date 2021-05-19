@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Displaying all inventory items</title>
+
+</head>
+<style>
+    th,td{
+    padding:10px;
+    }
+    table,th,td{
+    border:1px black solid;
+    }
+</style>
+<body>
+<table>
+    <tr>
+        <th>Sno</th>
+        <th>Items</th>
+        <th>Quantity</th>
+
+    </tr>
+    <tr th:each="list: ${l}">
+
+        <td th:text="${list.sno}"></td>
+        <td th:text="${list.item}"></td>
+        <td th:text="${list.quantity}"></td>
+
+
+    </tr>
+</table>
+<br><br>
+<form action="/save">
+    Enter sno of the item you want : <input type="number" name="sno">
+    Enter the quantity : <input type="number" name="quantity_d">
+    Enter your address : <input type="text" name="address">
+    <input type="submit">
+</form>
+</body>
+</html>
